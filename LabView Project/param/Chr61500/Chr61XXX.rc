@@ -1,0 +1,1351 @@
+library: Chr61XXX.dll
+
+class: "Chr61XXX"
+implements: ivi, iviResourceMgr
+attribute: "CHR61XXX_ATTR_INSTRU_COUPLE"
+	"INSTRUMENT:CHR61XXX_ATTR_INSTRU_COUPLE"
+	iL enum { CHR61XXX_VAL_NONE=0, CHR61XXX_VAL_ALL=1} readwrite local 00118C55
+"CHR61XXX_VAL_NONE 0
+
+CHR61XXX_VAL_ALL 1"
+attribute: "CHR61XXX_ATTR_INSTRU_ALLEACH"
+	"INSTRUMENT:CHR61XXX_ATTR_INSTRU_ALLEACH"
+	iL enum { CHR61XXX_VAL_EACH=0, CHR61XXX_VAL_ALL=1} readwrite local 00118C54
+"It is very convenient to use a programmed command to set all phases 
+at the same time for an AC Source that equipped with multiple 
+phases. 
+
+0:Each 1:All
+CHR61XXX_VAL_EACH 0
+
+CHR61XXX_VAL_ALL 1"
+attribute: "CHR61XXX_ATTR_INSTRU_SELECT_PHASE"
+	"INSTRUMENT:CHR61XXX_ATTR_INSTRU_SELECT_PHASE"
+	iL enum { CHR61XXX_VAL_INST_SELE_OUTPUT1=0, CHR61XXX_VAL_INST_SELE_OUTPUT2=1, CHR61XXX_VAL_INST_SELE_OUTPUT3=2} readwrite local 00118C57
+"This command sets individual output for subsequent commands or 
+queries in the multi-phase model.    If INST: COUP NONE has been programmed, the phase selection command will send to a specific output phase set by INSTrument: SELect.    If INST: COUP ALL has been programmed, all remote operation commands will send to all output phases. This command only affects the set voltage and queries the measurement data.    
+
+For instance, if ¡§INST: COUP ALL ¡¨, ¡§INST: SEL OUTPUT2¡¨ and ¡§Meas: VOLT?¡¨ are programmed, the AC Source will return £X 2 measurement voltage. INST: SELect follows the number to select phase. 
+
+Parameter:  0:OUTPUT1 1:OUTPUT2 2:OUTPUT3
+
+Attention: This control only support 61X11/61X12
+           X= 5 or 6
+CHR61XXX_VAL_INST_SELE_OUTPUT1 0
+
+CHR61XXX_VAL_INST_SELE_OUTPUT2 1
+
+CHR61XXX_VAL_INST_SELE_OUTPUT3 2"
+attribute: "CHR61XXX_ATTR_INSTRU_PHASE_SWITCH"
+	"INSTRUMENT:CHR61XXX_ATTR_INSTRU_PHASE_SWITCH"
+	iL enum { CHR61XXX_VAL_INSTR_PHASE_SINGLE=0, CHR61XXX_VAL_INSTR_PHASE_THREE=1} readwrite local 00118C58
+"This Function switches between single phase and three-phase mode. 
+
+Attention: This control only support 61X11/61X12
+           X= 5 or 6
+CHR61XXX_VAL_INSTR_PHASE_SINGLE 0
+
+CHR61XXX_VAL_INSTR_PHASE_THREE 1"
+attribute: "CHR61XXX_ATTR_INSTRU_NSELECT_PHASE"
+	"INSTRUMENT:CHR61XXX_ATTR_INSTRU_NSELECT_PHASE"
+	iL readwrite local 00118C56
+attribute: "CHR61XXX_ATTR_A615003"
+	"A615003:CHR61XXX_ATTR_A615003"
+	bool readwrite local 00118CA9
+"VI_TRUE 1
+True
+
+VI_FALSE 0
+False"
+attribute: "CHR61XXX_ATTR_VOLTAGE"
+	"SOURCE:CHR61XXX_ATTR_VOLTAGE"
+	fD readwrite local 00118C45
+"This control sets the DC or AC composite output voltage in Volts. 
+
+Range: 
+                      LOW            |         High
+ AC Voltage  |     0.0 - 150.0 (V)   |      0.0 - 300.0 (V)
+ DC Voltage  |  -212.2 - 212.2 (V)   |   -424.2 - 424.2 (V)"
+attribute: "CHR61XXX_ATTR_VOLTAGE320"
+	"SOURCE:CHR61XXX_ATTR_VOLTAGE320"
+	fD readwrite local 00118C86
+"This control is setting AC Voltage , but the AC Voltage MAX is 320V. Before you execute this control , you have to operate the instrument to open it. The operation is push the button 0 and 8 in the main page at the same time  , then you will hear the voice. If you hear one voice , it's means that the function is open. If you hear two voice , it's means that the function is closed. 
+
+Range: 0.0 - 320.0 (V)
+
+Attention: You have to operate the instrument then open the                
+           function , before you execute this control"
+attribute: "CHR61XXX_ATTR_VOLTAGE600"
+	"SOURCE:CHR61XXX_ATTR_VOLTAGE600"
+	fD readwrite local 00118CAA
+attribute: "CHR61XXX_ATTR_VOLTAGE_TYPE"
+	"SOURCE:CHR61XXX_ATTR_VOLTAGE_TYPE"
+	iL enum { CHR61XXX_VAL_VOLTTYPE_AC=0, CHR61XXX_VAL_VOLTTYPE_DC=1} readwrite local 00118C40
+"This control sets the DC or AC output voltage.
+
+Parameter:  0:AC ; 1:DC
+CHR61XXX_VAL_VOLTTYPE_AC 0
+
+CHR61XXX_VAL_VOLTTYPE_DC 1"
+attribute: "CHR61XXX_ATTR_VOLTAGE_RANGE"
+	"SOURCE:CHR61XXX_ATTR_VOLTAGE_RANGE"
+	iL enum { CHR61XXX_VAL_VOLTRANGE_LOW=0, CHR61XXX_VAL_VOLTRANGE_HIGH=1, CHR61XXX_VAL_VOLTRANGE_AUTO=2, CHR61XXX_VAL_VOLTRANGE_HV=3} readwrite local 00118C41
+"This command sets output voltage range with four options of LOW(150 V), HIGH(300 V), AUTO, or HV(600 V ,for A615003).
+
+Parameter : 
+            0:LOW ; 1:HIGH ; 2:AUTO 3:HV
+CHR61XXX_VAL_VOLTRANGE_LOW 0
+
+CHR61XXX_VAL_VOLTRANGE_HIGH 1
+
+CHR61XXX_VAL_VOLTRANGE_AUTO 2
+
+CHR61XXX_VAL_VOLTRANGE_HV 3"
+attribute: "CHR61XXX_ATTR_VOLTAGE_ACLIMIT"
+	"SOURCE:CHR61XXX_ATTR_VOLTAGE_ACLIMIT"
+	fD readwrite local 00118C42
+"This control sets the Vac LIMIT to restrict the value of Vac. 
+
+Range: 0.0 - 300.0 (V)
+   "
+attribute: "CHR61XXX_ATTR_VOLTAGE320_ACLIMIT"
+	"SOURCE:CHR61XXX_ATTR_VOLTAGE320_ACLIMIT"
+	fD readwrite local 00118C85
+"This control is setting AC Voltage Limit , but the AC Voltage Limit MAX is 320V. Before you execute this control , you have to operate the instrument to open it. The operation is push the button 0 and 8 in the main page at the same time  , then you will hear the voice. If you hear one voice , it's means that the function is open. If you hear two voice , it's means that the function is closed. 
+
+Range: 0.0 - 320.0 (V)
+
+Attention: You have to operate the instrument then open the                
+           function , before you execute this control"
+attribute: "CHR61XXX_ATTR_VOLTAGE600_ACLIMIT"
+	"SOURCE:CHR61XXX_ATTR_VOLTAGE600_ACLIMIT"
+	fD readwrite local 00118CAB
+attribute: "CHR61XXX_ATTR_VOLTAGE_DCLIMITP"
+	"SOURCE:CHR61XXX_ATTR_VOLTAGE_DCLIMITP"
+	fD readwrite local 00118C43
+"This control sets the Vdc Limit(+). 
+
+Range:   0.0  - 424.2 (V)
+ "
+attribute: "CHR61XXX_ATTR_VOLTAGE_DCLIMITM"
+	"SOURCE:CHR61XXX_ATTR_VOLTAGE_DCLIMITM"
+	fD readwrite local 00118C44
+"This control sets the Vdc Limit(-). 
+
+Range: -424.2 - 0.0 (V)
+"
+attribute: "CHR61XXX_ATTR_CURRENT_LIMIT"
+	"SOURCE:CHR61XXX_ATTR_CURRENT_LIMIT"
+	fD readwrite local 00118C9D
+"This function sets the rms current limit of the AC Source for 
+protection. "
+attribute: "CHR61XXX_ATTR_CURRENT_RANGE"
+	"SOURCE:CHR61XXX_ATTR_CURRENT_RANGE"
+	iL enum { CHR61XXX_VAL_CURRANGE_1=0, CHR61XXX_VAL_CURRANGE_2=1, CHR61XXX_VAL_CURRANGE_3=2, CHR61XXX_VAL_CURRANGE_AUTO=3} readwrite local 00118C34
+"This control sets the current measurement range for output.
+
+        1          2          3        AUTO 
+61512  12A        48A        192A      Auto 
+61511  08A        32A        128A      Auto 
+61612  12A        48A        192A      Auto 
+61611  08A        32A        128A      Auto 
+ 
+Parameter :1 2 3  Auto 
+
+Attention: This control only support 61X11/61X12
+           X= 5 or 6
+CHR61XXX_VAL_CURRANGE_1 0
+
+CHR61XXX_VAL_CURRANGE_2 1
+
+CHR61XXX_VAL_CURRANGE_3 2
+
+CHR61XXX_VAL_CURRANGE_AUTO 3"
+attribute: "CHR61XXX_ATTR_CURRENT_DELAY"
+	"SOURCE:CHR61XXX_ATTR_CURRENT_DELAY"
+	fD readwrite local 00118C33
+"This function sets the time delayed for triggering over current 
+protection. "
+attribute: "CHR61XXX_ATTR_CURRENT_INRUSH_START"
+	"SOURCE:CHR61XXX_ATTR_CURRENT_INRUSH_START"
+	fD readwrite local 00118C3E
+"This control sets the time to start the inrush current measurement. 
+
+Range : 61X01 - 61X05 : 0.0 - 999.9 (ms)
+
+        61X11 - 61X12 : 0.0 - 9999 (ms)
+
+        PS : X = 5 or 6"
+attribute: "CHR61XXX_ATTR_CURRENT_INRUSH_INTERVAL"
+	"SOURCE:CHR61XXX_ATTR_CURRENT_INRUSH_INTERVAL"
+	fD readwrite local 00118C3F
+"This control sets the measuring interval for inrush current 
+measurement.  
+
+Range : 61X01 - 61X05 : 0.0 - 999.9 (ms)
+
+        61X11 - 61X12 : 0.0 - 9999 (ms)
+
+        PS : X = 5 or 6"
+attribute: "CHR61XXX_ATTR_FUNCTION"
+	"SOURCE:CHR61XXX_ATTR_FUNCTION"
+	iL enum { CHR61XXX_VAL_FUNC_A=0, CHR61XXX_VAL_FUNC_B=1} readwrite local 00118C38
+"This control specifies the waveform buffer. The AC Source output has two buffers and users need to specify to use the contents of the waveform buffer A or B. 
+
+Parameter: 0:A 1:B
+
+Attention: This command only support 615XX 
+           X = 01.02.03.04.05.11.12
+CHR61XXX_VAL_FUNC_A 0
+
+CHR61XXX_VAL_FUNC_B 1"
+attribute: "CHR61XXX_ATTR_FUNCTION_WAVEFORM"
+	"SOURCE:CHR61XXX_ATTR_FUNCTION_WAVEFORM"
+	iL enum { CHR61XXX_VAL_FUNC_WAVE_SINE=0, CHR61XXX_VAL_FUNC_WAVE_SQUA=1, CHR61XXX_VAL_FUNC_WAVE_CSIN=2, CHR61XXX_VAL_FUNC_WAVE_DST=3, CHR61XXX_VAL_FUNC_WAVE_USR=4} readwrite local 00118C3A
+"This function is setting the waveform.  
+
+Parameter: 0:SINE 1:SQUA 2:CSIN 3:DST<01-30> 4:USR<01-06>
+
+Attention: This command only support 615XX 
+           X = 01.02.03.04.05.11.12
+
+CHR61XXX_VAL_FUNC_WAVE_SINE 0
+
+CHR61XXX_VAL_FUNC_WAVE_SQUA 1
+
+CHR61XXX_VAL_FUNC_WAVE_CSIN 2
+
+CHR61XXX_VAL_FUNC_WAVE_DST 3
+
+CHR61XXX_VAL_FUNC_WAVE_USR 4"
+attribute: "CHR61XXX_ATTR_FUNCTION_WAVEFORM_MODE "
+	"SOURCE:CHR61XXX_ATTR_FUNCTION_WAVEFORM_MODE "
+	iL enum { CHR61XXX_VAL_FUNC_WAVE_MODE_AMP=0, CHR61XXX_VAL_FUNC_WAVE_MODE_THD=1} readwrite local 00118C3C
+"This control selects the mode.
+
+Parameter: 0:AMP 1:THD
+ 
+Attention: This command only support 615XX 
+           X = 01.02.03.04.05.11.12
+
+CHR61XXX_VAL_FUNC_WAVE_MODE_AMP 0
+
+CHR61XXX_VAL_FUNC_WAVE_MODE_THD 1"
+attribute: "CHR61XXX_ATTR_FUNCTION_WAVEFORM_QUERY"
+	"SOURCE:CHR61XXX_ATTR_FUNCTION_WAVEFORM_QUERY"
+	string readwrite local 00118CA0
+attribute: "CHR61XXX_ATTR_FUNCTION_WAVEFORM_SELECT"
+	"SOURCE:CHR61XXX_ATTR_FUNCTION_WAVEFORM_SELECT"
+	iL enum { CHR61XXX_VAL_FUNC_WAVE_SELECT_01=1, CHR61XXX_VAL_FUNC_WAVE_SELECT_02=2, CHR61XXX_VAL_FUNC_WAVE_SELECT_03=3, CHR61XXX_VAL_FUNC_WAVE_SELECT_04=4, CHR61XXX_VAL_FUNC_WAVE_SELECT_05=5, CHR61XXX_VAL_FUNC_WAVE_SELECT_06=6, CHR61XXX_VAL_FUNC_WAVE_SELECT_07=7, CHR61XXX_VAL_FUNC_WAVE_SELECT_08=8, CHR61XXX_VAL_FUNC_WAVE_SELECT_09=9, CHR61XXX_VAL_FUNC_WAVE_SELECT_10=10, CHR61XXX_VAL_FUNC_WAVE_SELECT_11=11, CHR61XXX_VAL_FUNC_WAVE_SELECT_12=12, CHR61XXX_VAL_FUNC_WAVE_SELECT_13=13, CHR61XXX_VAL_FUNC_WAVE_SELECT_14=14, CHR61XXX_VAL_FUNC_WAVE_SELECT_15=15, CHR61XXX_VAL_FUNC_WAVE_SELECT_16=16, CHR61XXX_VAL_FUNC_WAVE_SELECT_17=17, CHR61XXX_VAL_FUNC_WAVE_SELECT_18=18, CHR61XXX_VAL_FUNC_WAVE_SELECT_19=19, CHR61XXX_VAL_FUNC_WAVE_SELECT_20=20, CHR61XXX_VAL_FUNC_WAVE_SELECT_21=21, CHR61XXX_VAL_FUNC_WAVE_SELECT_22=22, CHR61XXX_VAL_FUNC_WAVE_SELECT_23=23, CHR61XXX_VAL_FUNC_WAVE_SELECT_24=24, CHR61XXX_VAL_FUNC_WAVE_SELECT_25=25, CHR61XXX_VAL_FUNC_WAVE_SELECT_26=26, CHR61XXX_VAL_FUNC_WAVE_SELECT_27=27, CHR61XXX_VAL_FUNC_WAVE_SELECT_28=28, CHR61XXX_VAL_FUNC_WAVE_SELECT_29=29, CHR61XXX_VAL_FUNC_WAVE_SELECT_30=30} readwrite local 00118C3B
+"This function is setting the waveform type DST and USR number. 
+
+Range: If waveform is setting DST ,  range is 1-30.
+       If waveform is setting USR ,  range is 1-6.
+       If waveform is setting SINE.SQUA or Csin , the setting is useless.(1-30)
+
+CHR61XXX_VAL_FUNC_WAVE_SELECT_01 1
+
+CHR61XXX_VAL_FUNC_WAVE_SELECT_02 2
+
+CHR61XXX_VAL_FUNC_WAVE_SELECT_03 3
+
+CHR61XXX_VAL_FUNC_WAVE_SELECT_04 4
+
+CHR61XXX_VAL_FUNC_WAVE_SELECT_05 5
+
+CHR61XXX_VAL_FUNC_WAVE_SELECT_06 6
+
+CHR61XXX_VAL_FUNC_WAVE_SELECT_07 7
+
+CHR61XXX_VAL_FUNC_WAVE_SELECT_08 8
+
+CHR61XXX_VAL_FUNC_WAVE_SELECT_09 9
+
+CHR61XXX_VAL_FUNC_WAVE_SELECT_10 10
+
+CHR61XXX_VAL_FUNC_WAVE_SELECT_11 11
+
+CHR61XXX_VAL_FUNC_WAVE_SELECT_12 12
+
+CHR61XXX_VAL_FUNC_WAVE_SELECT_13 13
+
+CHR61XXX_VAL_FUNC_WAVE_SELECT_14 14
+
+CHR61XXX_VAL_FUNC_WAVE_SELECT_15 15
+
+CHR61XXX_VAL_FUNC_WAVE_SELECT_16 16
+
+CHR61XXX_VAL_FUNC_WAVE_SELECT_17 17
+
+CHR61XXX_VAL_FUNC_WAVE_SELECT_18 18
+
+CHR61XXX_VAL_FUNC_WAVE_SELECT_19 19
+
+CHR61XXX_VAL_FUNC_WAVE_SELECT_20 20
+
+CHR61XXX_VAL_FUNC_WAVE_SELECT_21 21
+
+CHR61XXX_VAL_FUNC_WAVE_SELECT_22 22
+
+CHR61XXX_VAL_FUNC_WAVE_SELECT_23 23
+
+CHR61XXX_VAL_FUNC_WAVE_SELECT_24 24
+
+CHR61XXX_VAL_FUNC_WAVE_SELECT_25 25
+
+CHR61XXX_VAL_FUNC_WAVE_SELECT_26 26
+
+CHR61XXX_VAL_FUNC_WAVE_SELECT_27 27
+
+CHR61XXX_VAL_FUNC_WAVE_SELECT_28 28
+
+CHR61XXX_VAL_FUNC_WAVE_SELECT_29 29
+
+CHR61XXX_VAL_FUNC_WAVE_SELECT_30 30"
+attribute: "CHR61XXX_ATTR_FUNCTION_WAVEFORM_MODEVAL"
+	"SOURCE:CHR61XXX_ATTR_FUNCTION_WAVEFORM_MODEVAL"
+	fD readwrite local 00118C3D
+"This control sets the clipped peak percentage.
+
+Range: If Mode is AMP , Range is 0.0% - 100%.
+       If Mode is THD , Range is 0.0% - 43%.
+
+Attention: This command only support 615XX 
+           X = 01.02.03.04.05.11.12
+"
+attribute: "CHR61XXX_ATTR_FREQUENCY"
+	"SOURCE:CHR61XXX_ATTR_FREQUENCY"
+	fD readwrite local 00118C36
+"This command sets the output waveform frequency for the AC 
+Source in Hz. 
+
+Range: 
+
+    61X01-61X05 :  15.00 - 1000.00 (Hz)
+    61X11-61X12 :  15.00 - 1500.00 (Hz)"
+attribute: "CHR61XXX_ATTR_FREQUENCY_LIMIT"
+	"SOURCE:CHR61XXX_ATTR_FREQUENCY_LIMIT"
+	fD readwrite local 00118C37
+"This command sets the output frequency limit for the AC Source.    
+
+Range :  61X11-61X12 :  15.00 - 1500.00 (Hz)
+
+Attention: This control only support 61X11/61X12
+           X= 5 or 6"
+attribute: "CHR61XXX_ATTR_POWER_PROTECT"
+	"SOURCE:CHR61XXX_ATTR_POWER_PROTECT"
+	fD readwrite local 00118C9F
+"This control sets the OPP (Over Power Protection) for AC 
+Source.  (Unit:KW)
+
+Range:  
+       Single Phase :
+
+        61X11 :  0.00 - 12.00  (KW)
+        61X12 :  0.00 - 18.00  (KW)
+
+        PS: X = 5 or 6
+      -------------------------------------------------
+
+       Three Phase : 
+
+        Model |   Total Phase    |    Each Phase    |
+       
+        61X11 | 0.00 - 12.00(KW) |  0.00 - 4.00(KW) |
+        61X12 | 0.00 - 18.00(KW) |  0.00 - 6.00(KW) |
+
+        PS: X = 5 or 6
+
+Attention: This control only support 61X11/61X12 
+           X = 5 or 6"
+attribute: "CHR61XXX_ATTR_OUTPUT_RELY"
+	"OUTPUT:CHR61XXX_ATTR_OUTPUT_RELY"
+	bool readwrite local 00118C4B
+"This control sets output relay on or off.  
+
+Parameter: 0:OFF 1:ON
+VI_TRUE 1
+True
+
+VI_FALSE 0
+False"
+attribute: "CHR61XXX_ATTR_OUTPUT_MODE"
+	"OUTPUT:CHR61XXX_ATTR_OUTPUT_MODE"
+	iL enum { CHR61XXX_VAL_OUTP_MODE_FIXED=0, CHR61XXX_VAL_OUTP_MODE_LIST=1, CHR61XXX_VAL_OUTP_MODE_PULSE=2, CHR61XXX_VAL_OUTP_MODE_STEP=3, CHR61XXX_VAL_OUTP_MODE_SYNTH=4, CHR61XXX_VAL_OUTP_MODE_INTERHAR=5} readwrite local 00118C50
+"This control sets the operation mode and ¡§FIXED¡¨ mode is the 
+general operation mode.  
+
+Parameter: 0:FIXED 1:LIST 2:PULSE 3:STEP 4:SYNTH 5:INTERHAR
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12
+
+CHR61XXX_VAL_OUTP_MODE_FIXED 0
+
+CHR61XXX_VAL_OUTP_MODE_LIST 1
+
+CHR61XXX_VAL_OUTP_MODE_PULSE 2
+
+CHR61XXX_VAL_OUTP_MODE_STEP 3
+
+CHR61XXX_VAL_OUTP_MODE_SYNTH 4
+
+CHR61XXX_VAL_OUTP_MODE_INTERHAR 5"
+attribute: "CHR61XXX_ATTR_OUTPUT_STATE"
+	"OUTPUT:CHR61XXX_ATTR_OUTPUT_STATE"
+	bool readwrite local 00118C4A
+"This control enables or disables the output of the AC Source. 
+Disabled output is to set the output voltage amplitude to 0 Volt. 
+
+Parameter: 0:OFF 1:ON
+VI_TRUE 1
+True
+
+VI_FALSE 0
+False"
+attribute: "CHR61XXX_ATTR_OUTPUT_ACVOLT"
+	"OUTPUT:CHR61XXX_ATTR_OUTPUT_ACVOLT"
+	fD readwrite local 00118C4C
+"This control sets the slew rate of the AC output voltage.
+
+Range: 0.000 - 1200.000 (V/ms)"
+attribute: "CHR61XXX_ATTR_OUTPUT_DCVOLT"
+	"OUTPUT:CHR61XXX_ATTR_OUTPUT_DCVOLT"
+	fD readwrite local 00118C4D
+"This control sets the slew rate of the AC output voltage.
+
+Range: 0.000 - 1000.000 (V/ms)"
+attribute: "CHR61XXX_ATTR_OUTPUT_COUPLING"
+	"OUTPUT:CHR61XXX_ATTR_OUTPUT_COUPLING"
+	iL enum { CHR61XXX_VAL_OUTP_COUPL_AC=0, CHR61XXX_VAL_OUTP_COUPL_DC=1, CHR61XXX_VAL_OUTP_COUPL_ACDC=2} readwrite local 00118C4F
+"This control selects the coupling of the output signals.   
+
+Parameter: 0:AC 1:DC 2:ACDC
+CHR61XXX_VAL_OUTP_COUPL_AC 0
+
+CHR61XXX_VAL_OUTP_COUPL_DC 1
+
+CHR61XXX_VAL_OUTP_COUPL_ACDC 2"
+attribute: "CHR61XXX_ATTR_OUTPUT_FREQUENCY"
+	"OUTPUT:CHR61XXX_ATTR_OUTPUT_FREQUENCY"
+	fD readwrite local 00118C4E
+"This control sets the slew rate of the output frequency.  
+
+Range: 0.000 - 1600.000 (Hz/ms)"
+attribute: "CHR61XXX_ATTR_OUTPUT_IMPEDANCE_STATE"
+	"OUTPUT:CHR61XXX_ATTR_OUTPUT_IMPEDANCE_STATE"
+	bool readwrite local 00118C51
+"This control sets if enabling the output impedance control.
+
+Parameter: 0:OFF 1:ON
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12
+
+VI_TRUE 1
+True
+
+VI_FALSE 0
+False"
+attribute: "CHR61XXX_ATTR_OUTPUT_IMPEDANCE_RESISTOR"
+	"OUTPUT:CHR61XXX_ATTR_OUTPUT_IMPEDANCE_RESISTOR"
+	fD readwrite local 00118C52
+"This control sets the resistance of output impedance. 
+
+Range: 0.00 - 1.00 
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12
+"
+attribute: "CHR61XXX_ATTR_OUTPUT_IMPEDANCE_INDUCTION"
+	"OUTPUT:CHR61XXX_ATTR_OUTPUT_IMPEDANCE_INDUCTION"
+	fD readwrite local 00118C53
+"This control sets the inductance of output impedance. 
+
+Range: 0.00 - 1.00 (mH)
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12"
+attribute: "CHR61XXX_ATTR_PHASE"
+	"PHASE:CHR61XXX_ATTR_PHASE"
+	iL readwrite local 00118CA8
+attribute: "CHR61XXX_ATTR_PHASE_P12"
+	"PHASE:CHR61XXX_ATTR_PHASE_P12"
+	fD readwrite local 00118C64
+"This control sets the phase difference. 
+
+Range: 0.0 - 359.9
+
+Attention: This control only support 61X11/61X12 
+           X = 5 or 6
+"
+attribute: "CHR61XXX_ATTR_PHASE_P13"
+	"PHASE:CHR61XXX_ATTR_PHASE_P13"
+	fD readwrite local 00118C65
+"This control sets the phase difference. 
+
+Range: 0.0 - 359.9
+
+Attention: This control only support 61X11/61X12 
+           X = 5 or 6
+"
+attribute: "CHR61XXX_ATTR_PHASE_MODE"
+	"PHASE:CHR61XXX_ATTR_PHASE_MODE"
+	iL enum { CHR61XXX_VAL_PHASE_MODE_INDE=0, CHR61XXX_VAL_PHASE_MODE_SAFR=1, CHR61XXX_VAL_PHASE_MODE_BALA=2} readwrite local 00118C68
+"This control set the operation mode in 3-phase mode. 
+
+Parameer: 0:Independ  1:Samefreq  2:Balance
+
+Attention: This control only support 61X11/61X12 
+           X = 5 or 6
+CHR61XXX_VAL_PHASE_MODE_INDE 0
+
+CHR61XXX_VAL_PHASE_MODE_SAFR 1
+
+CHR61XXX_VAL_PHASE_MODE_BALA 2"
+attribute: "CHR61XXX_ATTR_PHASE_DEGREE"
+	"PHASE:CHR61XXX_ATTR_PHASE_DEGREE"
+	fD readwrite local 00118C63
+"This control sets the transition angle.
+
+Range: if Phase is ON :  0.0 - 359.9
+       if Phase is OFF : 0.0 - 360.0 (360.0 Means IMMED)"
+attribute: "CHR61XXX_ATTR_PHASE_RELOCK"
+	"PHASE:CHR61XXX_ATTR_PHASE_RELOCK"
+	iL enum { CHR61XXX_VAL_PHASE_RELOCK_DIS=0, CHR61XXX_VAL_PHASE_RELOCK_EN=1} readwrite local 00118C67
+"This control sets the relock function in 3-phase mode. 
+
+Parameter: 0:Disable 1:Enable
+
+Attention: This control only support 61X11/61X12 
+           X = 5 or 6
+CHR61XXX_VAL_PHASE_RELOCK_DIS 0
+
+CHR61XXX_VAL_PHASE_RELOCK_EN 1"
+attribute: "CHR61XXX_ATTR_PHASE_SEQUENCE"
+	"PHASE:CHR61XXX_ATTR_PHASE_SEQUENCE"
+	iL enum { CHR61XXX_VAL_PHASE_SEQ_NEG=1, CHR61XXX_VAL_PHASE_SEQ_POS=0} readwrite local 00118C66
+"This control sets the phase sequence in 3-phase mode.
+
+Parameter: 0:Positive  1:Negative
+
+Attention: This control only support 61X11/61X12 
+           X = 5 or 6
+CHR61XXX_VAL_PHASE_SEQ_NEG 1
+
+CHR61XXX_VAL_PHASE_SEQ_POS 0"
+attribute: "CHR61XXX_ATTR_INHIBIT"
+	"CONFIGURE:CHR61XXX_ATTR_INHIBIT"
+	iL enum { CHR61XXX_VAL_INHIBIT_OFF=0, CHR61XXX_VAL_INHIBIT_LIVE=1, CHR61XXX_VAL_INHIBIT_TRIG=2, CHR61XXX_VAL_INHIBIT_DISABLE=3, CHR61XXX_VAL_INHIBIT_ENABLE=4} readwrite local 00118C46
+"This control sets the Remote Inhibit function.
+
+PArameter: 0:Disable 1:Enable
+
+CHR61XXX_VAL_INHIBIT_OFF 0
+
+CHR61XXX_VAL_INHIBIT_LIVE 1
+
+CHR61XXX_VAL_INHIBIT_TRIG 2
+
+CHR61XXX_VAL_INHIBIT_DISABLE 3
+
+CHR61XXX_VAL_INHIBIT_ENABLE 4"
+attribute: "CHR61XXX_ATTR_EXTERNAL"
+	"CONFIGURE:CHR61XXX_ATTR_EXTERNAL"
+	bool readwrite local 00118C47
+"This control sets if enabling the External-V Reference function.   
+
+Parameter: 0:OFF 1:ON
+VI_TRUE 1
+True
+
+VI_FALSE 0
+False"
+attribute: "CHR61XXX_ATTR_COUPLING"
+	"CONFIGURE:CHR61XXX_ATTR_COUPLING"
+	iL enum { CHR61XXX_VAL_COUPLING_AC=0, CHR61XXX_VAL_COUPLING_DC=1} readwrite local 00118C48
+"This control sets the External-V Reference to be 
+AC_AMPLIFIER or DC_LEVEL to control the AC Source output. 
+
+Parameter: 0:AC 1:DC 
+CHR61XXX_VAL_COUPLING_AC 0
+
+CHR61XXX_VAL_COUPLING_DC 1"
+attribute: "CHR61XXX_ATTR_EXTONOFF"
+	"CONFIGURE:CHR61XXX_ATTR_EXTONOFF"
+	bool readwrite local 00118C49
+"This control sets the External ON/OFF control. 
+
+Parameter: 0:Disable 1:Enable
+
+Attention: This control only support 61X11/61X12 
+           X = 5 or 6
+
+VI_TRUE 1
+True
+
+VI_FALSE 0
+False"
+attribute: "CHR61XXX_ATTR_PULSE_TRIG"
+	"PULSE:CHR61XXX_ATTR_PULSE_TRIG"
+	iL enum { CHR61XXX_VAL_PULSE_TRIG_AUTO=0, CHR61XXX_VAL_PULSE_TRIG_MANUAL=1, CHR61XXX_VAL_PULSE_TRIG_EXCITE=2} readwrite local 00118C71
+"This control sets the TRIG type of PULSE mode.   
+
+Parameter: 0:Auto 1:Manual 2:Excite
+
+Attention: This control only support 61X11/61X12 
+           X = 5 or 6
+
+CHR61XXX_VAL_PULSE_TRIG_AUTO 0
+
+CHR61XXX_VAL_PULSE_TRIG_MANUAL 1
+
+CHR61XXX_VAL_PULSE_TRIG_EXCITE 2"
+attribute: "CHR61XXX_ATTR_PULSE_PHASE"
+	"PULSE:CHR61XXX_ATTR_PULSE_PHASE"
+	fD readwrite local 00118C77
+"This control sets the start phase angle of duty cycle for PULSE 
+mode.   
+
+Range: 0 - 359.9 
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12"
+attribute: "CHR61XXX_ATTR_PULSE_SHAPE"
+	"PULSE:CHR61XXX_ATTR_PULSE_SHAPE"
+	iL enum { CHR61XXX_VAL_PULSE_SHAPE_A=0, CHR61XXX_VAL_PULSE_SHAPE_B=1} readwrite local 00118C76
+"This control selects the waveform buffer for PULSE mode. 
+
+Parameter: A or B
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12
+CHR61XXX_VAL_PULSE_SHAPE_A 0
+
+CHR61XXX_VAL_PULSE_SHAPE_B 1"
+attribute: "CHR61XXX_ATTR_PULSE_CYCLE"
+	"PULSE:CHR61XXX_ATTR_PULSE_CYCLE"
+	iL readwrite local 00118C79
+"This control sets the duty cycle of PULSE mode.  
+
+Range: 0 - 100 (%)
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12"
+attribute: "CHR61XXX_ATTR_PULSE_PERIOD"
+	"PULSE:CHR61XXX_ATTR_PULSE_PERIOD"
+	fD readwrite local 00118C7A
+"This control sets the period of the PULSE mode. 
+
+Range: 0 - 99999999.9 (ms)
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12"
+attribute: "CHR61XXX_ATTR_PULSE_COUNT"
+	"PULSE:CHR61XXX_ATTR_PULSE_COUNT"
+	iL readwrite local 00118C78
+"This control sets the number of times the pulse executed before 
+completion. 
+
+Range: 0 - 65535
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12
+"
+attribute: "CHR61XXX_ATTR_PULSE_ACVOLT"
+	"PULSE:CHR61XXX_ATTR_PULSE_ACVOLT"
+	fD readwrite local 00118C73
+"This control sets AC voltage for the duty cycle of PULSE mode. 
+
+Range: 
+                      LOW            |         High
+ AC Voltage  |     0.0 - 150.0 (V)   |      0.0 - 300.0 (V)
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12"
+attribute: "CHR61XXX_ATTR_PULSE_DCVOLT"
+	"PULSE:CHR61XXX_ATTR_PULSE_DCVOLT"
+	fD readwrite local 00118C74
+"This control sets the DC voltage for the duty cycle of PULSE 
+mode. 
+
+Range: 
+                      LOW            |         High
+ DC Voltage  |  -212.2 - 212.2 (V)   |   -424.2 - 424.2 (V)
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12"
+attribute: "CHR61XXX_ATTR_PULSE_FREQUECY"
+	"PULSE:CHR61XXX_ATTR_PULSE_FREQUECY"
+	fD readwrite local 00118C75
+"This control sets the frequency for the duty cycle of PULSE 
+mode.   
+
+Range:  
+      61X01-61X05 :  15.00 - 1000.00 (Hz)
+      61X11-61X12 :  15.00 - 1500.00 (Hz)
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12"
+attribute: "CHR61XXX_ATTR_LIST_TRIG"
+	"LIST:CHR61XXX_ATTR_LIST_TRIG"
+	iL enum { CHR61XXX_VAL_LIST_TRIG_AUTO=0, CHR61XXX_VAL_LISY_TRIG_MANUAL=1, CHR61XXX_VAL_LIST_TRIG_EXCITE=2} readwrite local 00118C6B
+"This control sets the trigger type of list mode.
+
+Parameter: 0:Auto 1:MANUAL 2:EXCITE
+
+Attention: This control only support 61X11/61X12 
+           X = 5 or 6
+CHR61XXX_VAL_LIST_TRIG_AUTO 0
+
+CHR61XXX_VAL_LISY_TRIG_MANUAL 1
+
+CHR61XXX_VAL_LIST_TRIG_EXCITE 2"
+attribute: "CHR61XXX_ATTR_LIST_BASE"
+	"LIST:CHR61XXX_ATTR_LIST_BASE"
+	iL enum { CHR61XXX_VAL_LIST_BASE_TIME=0, CHR61XXX_VAL_LIST_BASE_CYCLE=1} readwrite local 00118C6E
+"This control sets the time base of list. 
+
+Parameter: 0:Time 1:Cycle
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12
+
+CHR61XXX_VAL_LIST_BASE_TIME 0
+
+CHR61XXX_VAL_LIST_BASE_CYCLE 1"
+attribute: "CHR61XXX_ATTR_LIST_POINTS"
+	"LIST:CHR61XXX_ATTR_LIST_POINTS"
+	iL readwrite local 00118C6C
+attribute: "CHR61XXX_ATTR_LIST_COUNT"
+	"LIST:CHR61XXX_ATTR_LIST_COUNT"
+	iL readwrite local 00118C6D
+"This control sets the number of times the list executed before 
+completion. 
+
+Range: 0 - 65535
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12
+"
+attribute: "CHR61XXX_ATTR_LIST_COUPLING"
+	"LIST:CHR61XXX_ATTR_LIST_COUPLING"
+	iL enum { CHR61XXX_VAL_LIST_COUP_NONE=0, CHR61XXX_VAL_LIST_COUP_ALL=1} readwrite local 00118C6A
+"This control sets the function of list mode.   
+
+Parameter: 0:NONE 1:ALL
+
+
+Attention: This control only support 61X11/61X12 
+           X = 5 or 6
+
+CHR61XXX_VAL_LIST_COUP_NONE 0
+
+CHR61XXX_VAL_LIST_COUP_ALL 1"
+attribute: "CHR61XXX_ATTR_STEP_TRIG"
+	"STEP:CHR61XXX_ATTR_STEP_TRIG"
+	iL enum { CHR61XXX_VAL_STEP_TRIG_AUTO=0, CHR61XXX_VAL_STEP_TRIG_MANUAL=1} readwrite local 00118C7B
+"This control sets the TRIP type of STEP mode.   
+
+Parameter: 0:Auto 1:Manual 
+
+Attention: This control only support 61X11/61X12 
+           X = 5 or 6
+CHR61XXX_VAL_STEP_TRIG_AUTO 0
+
+CHR61XXX_VAL_STEP_TRIG_MANUAL 1"
+attribute: "CHR61XXX_ATTR_STEP_PHASE"
+	"STEP:CHR61XXX_ATTR_STEP_PHASE"
+	fD readwrite local 00118C80
+"This control sets the start phase angle of STEP mode. 
+
+Range: 0 - 359.9
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12"
+attribute: "CHR61XXX_ATTR_STEP_SHAPE"
+	"STEP:CHR61XXX_ATTR_STEP_SHAPE"
+	iL enum { CHR61XXX_VAL_STEP_SHAPE_A=0, CHR61XXX_VAL_STEP_SHAPE_B=1} readwrite local 00118C7F
+"This control selects the waveform buffer of STEP mode. 
+
+Parameter: A or B
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12
+CHR61XXX_VAL_STEP_SHAPE_A 0
+
+CHR61XXX_VAL_STEP_SHAPE_B 1"
+attribute: "CHR61XXX_ATTR_STEP_COUNT"
+	"STEP:CHR61XXX_ATTR_STEP_COUNT"
+	iL readwrite local 00118C88
+"This control sets the number of times the step executed before 
+completion. 
+
+Range: 0 - 65535 
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12"
+attribute: "CHR61XXX_ATTR_STEP_ACVOLT"
+	"STEP:CHR61XXX_ATTR_STEP_ACVOLT"
+	fD readwrite local 00118C7C
+"This control sets the initial AC voltage of STEP mode.  
+
+Range:
+                      LOW            |         High
+ AC Voltage  |     0.0 - 150.0 (V)   |      0.0 - 300.0 (V)
+
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12"
+attribute: "CHR61XXX_ATTR_STEP_DCVOLT"
+	"STEP:CHR61XXX_ATTR_STEP_DCVOLT"
+	fD readwrite local 00118C7D
+"This control sets the initial DC voltage of STEP mode. 
+
+Range: 
+                      LOW            |         High
+ DC Voltage  |  -212.2 - 212.2 (V)   |   -424.2 - 424.2 (V)
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12"
+attribute: "CHR61XXX_ATTR_STEP_FREQUENCY"
+	"STEP:CHR61XXX_ATTR_STEP_FREQUENCY"
+	fD readwrite local 00118C7E
+"This control sets the initial frequency of STEP mode. 
+
+Range:
+      61X01-61X05 :  15.00 - 1000.00 (Hz)
+      61X11-61X12 :  15.00 - 1500.00 (Hz)
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12"
+attribute: "CHR61XXX_ATTR_STEP_DELTA_ACVOLT"
+	"STEP:CHR61XXX_ATTR_STEP_DELTA_ACVOLT"
+	fD readwrite local 00118C81
+"This control sets the AC voltage change in each step. 
+
+Range: 
+                      LOW            |         High
+ AC Voltage  |     0.0 - 150.0 (V)   |      0.0 - 300.0 (V)
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12"
+attribute: "CHR61XXX_ATTR_STEP_DELTA_DWELL"
+	"STEP:CHR61XXX_ATTR_STEP_DELTA_DWELL"
+	fD readwrite local 00118C87
+"This control sets the dwell time in each step. 
+
+Range: 0 - 99999999.9 (ms)
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12"
+attribute: "CHR61XXX_ATTR_STEP_DELTA_DCVOLT"
+	"STEP:CHR61XXX_ATTR_STEP_DELTA_DCVOLT"
+	fD readwrite local 00118C82
+"This control sets the DC voltage change in each step.   
+
+Range: 
+                      LOW            |         High
+ DC Voltage  |  -212.2 - 212.2 (V)   |   -424.2 - 424.2 (V)
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12"
+attribute: "CHR61XXX_ATTR_STEP_DELTA_FREQUENCY"
+	"STEP:CHR61XXX_ATTR_STEP_DELTA_FREQUENCY"
+	fD readwrite local 00118C83
+"This control sets the frequency change in each step. 
+
+Range:  
+      61X01-61X05 :  0.00 - 1000.00 (Hz)
+      61X11-61X12 :  0.00 - 1500.00 (Hz)
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12"
+attribute: "CHR61XXX_ATTR_SYNTHESIS_COMPOSE"
+	"SYNTHESIS:CHR61XXX_ATTR_SYNTHESIS_COMPOSE"
+	iL enum { CHR61XXX_VAL_SYNTHESIS_COMPOSE_V1=0, CHR61XXX_VAL_SYNTHESIS_COMPOSE_V2=1, CHR61XXX_VAL_SYNTHESIS_COMPOSE_V3=2, CHR61XXX_VAL_SYNTHESIS_COMPOSE_P1=3, CHR61XXX_VAL_SYNTHESIS_COMPOSE_P2=4, CHR61XXX_VAL_SYNTHESIS_COMPOSE_P3=5} readwrite local 00118C89
+"This control sets the data format of each harmonic order.   
+VALUE: absolute value, PERCENT: basic computer percentage. 
+Users can program 6 waveforms for execution.   
+
+Parameter:
+           0:VALUE1   1:VALUE2   2:VALUE3
+           3:PERCENT1 4.PERCENT2 5:PERCENT3
+  
+           61501-05 Only Support 0.1.3.4
+           61511-12 Support all.
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12
+CHR61XXX_VAL_SYNTHESIS_COMPOSE_V1 0
+
+CHR61XXX_VAL_SYNTHESIS_COMPOSE_V2 1
+
+CHR61XXX_VAL_SYNTHESIS_COMPOSE_V3 2
+
+CHR61XXX_VAL_SYNTHESIS_COMPOSE_P1 3
+
+CHR61XXX_VAL_SYNTHESIS_COMPOSE_P2 4
+
+CHR61XXX_VAL_SYNTHESIS_COMPOSE_P3 5"
+attribute: "CHR61XXX_ATTR_SYMTHESIS_FREQUENCY"
+	"SYNTHESIS:CHR61XXX_ATTR_SYMTHESIS_FREQUENCY"
+	iL enum { CHR61XXX_VAL_SYNTHESIS_FREQ_50=0, CHR61XXX_VAL_SYNTHESIS_FREQ_60=1} readwrite local 00118C8D
+"This control sets the fundamental frequency in SYNTHESIS 
+mode.   
+
+Parameter: 0:50 1:60
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12
+CHR61XXX_VAL_SYNTHESIS_FREQ_50 0
+
+CHR61XXX_VAL_SYNTHESIS_FREQ_60 1"
+attribute: "CHR61XXX_ATTR_SYMTHESIS_FREQUENCY_QUERY"
+	"SYNTHESIS:CHR61XXX_ATTR_SYMTHESIS_FREQUENCY_QUERY"
+	string readwrite local 00118CA1
+attribute: "CHR61XXX_ATTR_SYMTHESIS_ACVOLTAGE"
+	"SYNTHESIS:CHR61XXX_ATTR_SYMTHESIS_ACVOLTAGE"
+	fD readwrite local 00118C8C
+"This control sets the fundamental AC voltage in SYNTHESIS 
+mode. 
+
+Range: 
+                      LOW            |         High
+ AC Voltage  |     0.0 - 150.0 (V)   |      0.0 - 300.0 (V)
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12"
+attribute: "CHR61XXX_ATTR_SYMTHESIS_DCVOLTAGE"
+	"SYNTHESIS:CHR61XXX_ATTR_SYMTHESIS_DCVOLTAGE"
+	fD readwrite local 00118C8B
+"This control sets the DC voltage to add the voltage waveform in 
+SYNTHESIS mode.   
+
+Range: 
+                      LOW            |         High
+ DC Voltage  |  -212.2 - 212.2 (V)   |   -424.2 - 424.2 (V)
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12"
+attribute: "CHR61XXX_ATTR_SYMTHESIS_START_PHASE"
+	"SYNTHESIS:CHR61XXX_ATTR_SYMTHESIS_START_PHASE"
+	fD readwrite local 00118C8A
+"This cnntrol sets the start phase angle in SYNTHESIS mode. 
+
+Range: 0 - 359.9
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12"
+attribute: "CHR61XXX_ATTR_HARMONIC_FREQUENCY"
+	"HARMONIC:CHR61XXX_ATTR_HARMONIC_FREQUENCY"
+	iL enum { CHR61XXX_VAL_HARMONIC_FREQ_50=0, CHR61XXX_VAL_HARMONIC_FREQ_60=1} readwrite local 00118C95
+"This control sets the fundamental frequency of original waveform.   
+
+Parameter: 0:50(Hz)  1:60(Hz)
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12
+CHR61XXX_VAL_HARMONIC_FREQ_50 0
+
+CHR61XXX_VAL_HARMONIC_FREQ_60 1"
+attribute: "CHR61XXX_ATTR_HARMONIC_FREQUENCY_QUERY"
+	"HARMONIC:CHR61XXX_ATTR_HARMONIC_FREQUENCY_QUERY"
+	string readwrite local 00118CA2
+attribute: "CHR61XXX_ATTR_HARMONIC_PARAMETER"
+	"HARMONIC:CHR61XXX_ATTR_HARMONIC_PARAMETER"
+	iL enum { CHR61XXX_VAL_HARMONIC_PARA_VAL=0, CHR61XXX_VAL_HARMONIC_PARA_PERC=1} readwrite local 00118C94
+"This control sets the data format for each harmonic order. 
+
+Parameter: 0:Value  1:Percent
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12
+CHR61XXX_VAL_HARMONIC_PARA_VAL 0
+
+CHR61XXX_VAL_HARMONIC_PARA_PERC 1"
+attribute: "CHR61XXX_ATTR_HARMONIC_TIMES"
+	"HARMONIC:CHR61XXX_ATTR_HARMONIC_TIMES"
+	iL enum { CHR61XXX_VAL_HARMONIC_TIME_SING=0, CHR61XXX_VAL_HARMONIC_TIME_CONT=1} readwrite local 00118C93
+"This control sets the way the measurement result of harmonic 
+analysis displayed on LCD. 
+SINGLE: It keeps the measured data on the display when set.
+CONTINUE: It updates the measured data on the display when set.
+
+Parameter: 0:Single  1:Continue
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12
+CHR61XXX_VAL_HARMONIC_TIME_SING 0
+
+CHR61XXX_VAL_HARMONIC_TIME_CONT 1"
+attribute: "CHR61XXX_ATTR_HARMONIC_SOURCE"
+	"HARMONIC:CHR61XXX_ATTR_HARMONIC_SOURCE"
+	iL enum { CHR61XXX_VAL_HARMONIC_SOUR_V=0, CHR61XXX_VAL_HARMONIC_SOUR_C=1} readwrite local 00118C92
+"This control sets the measured power source in harmonic analysis mode.   
+
+Parameter: 0:Volt 1:Curr
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12
+CHR61XXX_VAL_HARMONIC_SOUR_V 0
+
+CHR61XXX_VAL_HARMONIC_SOUR_C 1"
+attribute: "CHR61XXX_ATTR_HARMONIC_STATE"
+	"HARMONIC:CHR61XXX_ATTR_HARMONIC_STATE"
+	bool readwrite local 00118C96
+"This control sets the harmonic measurement on/off. It has to execute ¡§ON¡¨ before every new search or measurement. Only 3 seconds are required for the result.    The parameter has to set to¡§OFF¡¨ if users wish to measure other data.  
+
+Parameter: 0:OFF 1:ON
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12
+VI_TRUE 1
+True
+
+VI_FALSE 0
+False"
+attribute: "CHR61XXX_ATTR_INTERHARMONICS_LEVEL"
+	"INTERHARMONICS:CHR61XXX_ATTR_INTERHARMONICS_LEVEL"
+	fD readwrite local 00118C91
+"This control sets the rms. range of sweep wave in percentage 
+level. 
+
+Range:
+       0% - 30% in 0.01 Hz - 500 Hz 
+       0% - 20% in 500.01 Hz - 1000 Hz 
+       0% - 10% in 1000.01 Hz - 2400 Hz 
+
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12"
+attribute: "CHR61XXX_ATTR_INTERHARMONICS_DWELL"
+	"INTERHARMONICS:CHR61XXX_ATTR_INTERHARMONICS_DWELL"
+	fD readwrite local 00118C90
+"This control sets the dwell time of sweep wave.
+
+Range: 0.00 - 9999.99 (sec)
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12"
+attribute: "CHR61XXX_ATTR_INTERHARMONICS_FREQ_END"
+	"INTERHARMONICS:CHR61XXX_ATTR_INTERHARMONICS_FREQ_END"
+	fD readwrite local 00118C8F
+"This control sets the end frequency of sweep wave for 
+INTERHARMONICS mode.
+
+Range: 0.01 - 2400 (Hz)
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12"
+attribute: "CHR61XXX_ATTR_INTERHARMONICS_FREQ_START"
+	"INTERHARMONICS:CHR61XXX_ATTR_INTERHARMONICS_FREQ_START"
+	fD readwrite local 00118C8E
+"This control sets the start frequency of sweep wave for 
+INTERHARMONICS mode. 
+
+Range: 0.01 - 2400 (Hz)
+
+Attention: This control only support 615XX 
+           X = 01.02.03.04.05.11.12"
+attribute: "CHR61XXX_ATTR_SYSTEM_LOCAL_REMOTE"
+	"SYSTEM:CHR61XXX_ATTR_SYSTEM_LOCAL_REMOTE"
+	iL enum { CHR61XXX_VAL_SYSTEM_LOCAL=0, CHR61XXX_VAL_SYSTEM_REMOTE=1} readwrite local 00118C59
+"This control can only be used under the control of RS-232C. If 
+SYST : LOC is programmed, the AC source will be set in the 
+LOCAL state, and the front panel will work. If SYST : REM is programmed, the AC source will be set in the REMOTE state, and the front panel will be disabled except the ¡§<PAGE/EXIT> key.  
+CHR61XXX_VAL_SYSTEM_LOCAL 0
+
+CHR61XXX_VAL_SYSTEM_REMOTE 1"
+attribute: "CHR61XXX_ATTR_STATUS_QUESTIONABLE_PTR"
+	"STATUS:CHR61XXX_ATTR_STATUS_QUESTIONABLE_PTR"
+	iL readwrite local 00118C9C
+"These control set or read the values of Questionable PTR register. Please refer to the description of Status Questionable NTR command.  
+
+Range: 0 - 511 
+"
+attribute: "CHR61XXX_ATTR_STATUS_QUESTIONABLE_NTR"
+	"STATUS:CHR61XXX_ATTR_STATUS_QUESTIONABLE_NTR"
+	iL readwrite local 00118C9B
+"These control set or read the value of register.The operation of these registers is the same as polarity filter of Questionable Enable and Questionable Event registers that lead the following actions:  
+
+*  When a bit of the Questionable NTR register is set to 1, a  1-to-0 transition of the corresponding bit in the Questionable Condition register will make that bit in the Questionable Event register to be set. 
+
+* When a bit of the Questionable PTR register is set to 1, a 0-to-1 transition of the corresponding bit in the Questionable Condition register will make that bit in the Questionable Event register to be set.  
+
+* If the two same bits in both NTR and PTR registers are set to 0, none transition of that bit in the Questionable Condition register can set the corresponding bit in the Questionable Event register.   
+
+Bit Configuration of Questionable Status Register:   
+Bit Position | 15-9  8   7   6   5   4   3   2     1      0 
+Condition    |  --- OVP INP OCP FAN SHT OTP OPP INT-DD INT-AD
+
+  OVP    : Output voltage protection 
+  INP    : Line input protection. 
+  OCP    : Over current protection. 
+  FAN    : Fan failure. 
+  SHT    : Output short protection. 
+  OTP    : Over temperature protection. 
+  OPP    : Over power protection. 
+  INT-DD : Inner DD power stage protection 
+  INT-AD : Inner AD power stage protection 
+
+
+Range: 0 - 511"
+attribute: "CHR61XXX_ATTR_STATUS_QUESTIONABLE_ENABLE"
+	"STATUS:CHR61XXX_ATTR_STATUS_QUESTIONABLE_ENABLE"
+	iL readwrite local 00118C9A
+"The control sets or reads the value of Questionable Enable register. The register is the shield when specific bit is enabled to set the QUES bit of Status Byte register from Operation Status register.   
+
+Range: 0 - 511"
+attribute: "CHR61XXX_ATTR_STATUS_OPERATION_ENABLE"
+	"STATUS:CHR61XXX_ATTR_STATUS_OPERATION_ENABLE"
+	iL readwrite local 00118C99
+"This control sets the Operation Status Enable register.The 
+register is the shield when specific bit is enabled from Operation Status register.   
+
+Range: 0 - 255"
+attribute: "CHR61XXX_ATTR_TRACE_WAVEFORM_DATA"
+	"TRACE:CHR61XXX_ATTR_TRACE_WAVEFORM_DATA"
+	string readwrite local 00118C98
+"This command sets waveform data of user-defined. It
+needs 1024 data points to construct a period of waveform.
+Users have to normalize the data as the maximum point
+equal to 32767 or the minimum point equal to -32767."
+attribute: "CHR61XXX_ATTR_TRACE_WAVEFORM_ID"
+	"TRACE:CHR61XXX_ATTR_TRACE_WAVEFORM_ID"
+	iL readwrite local 00118C97
+"This command sets waveform data ID of user-defined.
+
+Valid Range:1 ~ 6
+
+Default:1"
+attribute: "CHR61XXX_ATTR_STATE_SAV"
+	"STATE:CHR61XXX_ATTR_STATE_SAV"
+	iL readwrite local 00118CA4
+"
+Valid Range: 1-10
+   
+Default Value: 1"
+attribute: "CHR61XXX_ATTR_STATE_RCL"
+	"STATE:CHR61XXX_ATTR_STATE_RCL"
+	iL readwrite local 00118CA3
+"Restore the values of specified group that stored in memory previously.   
+
+Range:  1 - 10 "
+attribute: "CHR61XXX_ATTR_VOL"
+	"OTHER:CHR61XXX_ATTR_VOL"
+	iL readwrite local 00118CAC
+attribute: "CHR61XXX_ATTR_AC320V"
+	"OTHER:CHR61XXX_ATTR_AC320V"
+	iL readwrite local 00118CA5
+attribute: "CHR61XXX_ATTR_SOURCE"
+	"OTHER:CHR61XXX_ATTR_SOURCE"
+	iL readwrite local 00118CA7
+attribute: "CHR61XXX_ATTR_JUDGE_MODE"
+	"OTHER:CHR61XXX_ATTR_JUDGE_MODE"
+	iL readwrite local 00118CA6
+attribute: "CHR61XXX_ATTR_DIFFER_MODEL"
+	"OTHER:CHR61XXX_ATTR_DIFFER_MODEL"
+	iL enum { CHR61XXX_VAL_MODEL1=0, CHR61XXX_VAL_MODEL2=1} readwrite local 00118C35
+"61X11-61X12   or  61X01-61X05
+CHR61XXX_VAL_MODEL1 0
+
+CHR61XXX_VAL_MODEL2 1"
+attribute: "CHR61XXX_ATTR_DIFFER_MODEL"
+	"OTHER:CHR61XXX_ATTR_DIFFER_MODEL"
+	iL enum { CHR61XXX_VAL_MODEL_615=0, CHR61XXX_VAL_MODEL_616=1} readwrite local 00118C39
+"615XX  or  616XX
+CHR61XXX_VAL_MODEL_615 0
+
+CHR61XXX_VAL_MODEL_616 1"
+attribute: "CHR61XXX_ATTR_DIFFER_MODEL2"
+	"OTHER:CHR61XXX_ATTR_DIFFER_MODEL2"
+	iL enum { CHR61XXX_VAL_61511_61512=0, CHR61XXX_VAL_61501_61505=1, CHR61XXX_VAL_616XX=2} readwrite local 00118C69
+"61511-61512  or  61501-61505  or  616XX
+CHR61XXX_VAL_61511_61512 0
+
+CHR61XXX_VAL_61501_61505 1
+
+CHR61XXX_VAL_616XX 2"
+attribute: "CHR61XXX_ATTR_DIFFER_MODEL3"
+	"OTHER:CHR61XXX_ATTR_DIFFER_MODEL3"
+	iL enum { CHR61XXX_VAL_MODE_CURRLIM_01=0, CHR61XXX_VAL_MODE_CURRLIM_02=1, CHR61XXX_VAL_MODE_CURRLIM_03=2, CHR61XXX_VAL_MODE_CURRLIM_04=3, CHR61XXX_VAL_MODE_CURRLIM_05=4, CHR61XXX_VAL_MODE_CURRLIM_11=5, CHR61XXX_VAL_MODE_CURRLIM_12=6} readwrite local 00118C9E
+"61501/61601 61502/61602 61503/61603 61504/61504 61505/61605 61511/61611 61611/61612
+CHR61XXX_VAL_MODE_CURRLIM_01 0
+
+CHR61XXX_VAL_MODE_CURRLIM_02 1
+
+CHR61XXX_VAL_MODE_CURRLIM_03 2
+
+CHR61XXX_VAL_MODE_CURRLIM_04 3
+
+CHR61XXX_VAL_MODE_CURRLIM_05 4
+
+CHR61XXX_VAL_MODE_CURRLIM_11 5
+
+CHR61XXX_VAL_MODE_CURRLIM_12 6"
+attribute: "Range Check"
+	"Inherent IVI Attributes:User Options:Range Check"
+	bool readwrite local 00100592
+"Specifies whether to validate property values and function parameters.  If enabled, the instrument driver validates the parameter values that you pass to driver functions.  Range checking parameters is very useful for debugging.  After you validate your program, you can set this property to FALSE to disable range checking and maximize performance.
+    The default value is TRUE.   Use the Chr61XXX_InitWithOptions function to override this value.
+    
+VI_TRUE 1
+True
+
+VI_FALSE 0
+False"
+attribute: "Query Instrument Status"
+	"Inherent IVI Attributes:User Options:Query Instrument Status"
+	bool readwrite local 00100593
+"Specifies whether the instrument driver queries the instrument status after each operation.  Querying the instrument status is very useful for debugging.  After you validate your program, you can set this property to FALSE to disable status checking and maximize performance
+    The instrument driver can choose to ignore status checking for particular properties regardless of the setting of this property.
+    The default value is TRUE.   Use the Chr61XXX_InitWithOptions function to override this value.
+    
+VI_TRUE 1
+True
+
+VI_FALSE 0
+False"
+attribute: "Cache"
+	"Inherent IVI Attributes:User Options:Cache"
+	bool readwrite local 00100594
+"Specifies whether to cache the value of properties.  When caching is enabled, the instrument driver keeps track of the current instrument settings and avoids sending redundant commands to the instrument.  Thus, you can significantly increase execution speed.
+    The instrument driver can choose always to cache or never to cache particular properties regardless of the setting of this property.
+    The default value is TRUE.   Use the Chr61XXX_InitWithOptions function to override this value.
+    
+VI_TRUE 1
+True
+
+VI_FALSE 0
+False"
+attribute: "Simulate"
+	"Inherent IVI Attributes:User Options:Simulate"
+	bool readwrite local 00100595
+"Specifies whether or not to simulate instrument driver I/O operations.  If simulation is enabled, instrument driver functions perform range checking and call Ivi_GetAttribute and Ivi_SetAttribute functions, but they do not perform instrument I/O.  For output parameters that represent instrument data, the instrument driver functions return calculated values.
+    The default value is FALSE.   Use the Chr61XXX_InitWithOptions function to override this value.
+    
+VI_TRUE 1
+True
+
+VI_FALSE 0
+False"
+attribute: "Record Value Coercions"
+	"Inherent IVI Attributes:User Options:Record Value Coercions"
+	bool readwrite local 00100596
+"Specifies whether the IVI engine keeps a list of the value coercions it makes for ViInt32 and ViReal64 properties.  You call Chr61XXX_GetNextCoercionRecord to extract and delete the oldest coercion record from the list.
+    The default value is FALSE.   Use the Chr61XXX_InitWithOptions function to override this value.
+    
+VI_TRUE 1
+True
+
+VI_FALSE 0
+False"
+attribute: "Description"
+	"Inherent IVI Attributes:Driver Identification:Description"
+	string readonly local 00100792
+"A string that contains a brief description of the specific driver
+    "
+attribute: "Driver Prefix"
+	"Inherent IVI Attributes:Driver Identification:Driver Prefix"
+	string readonly local 001006BE
+"A string that contains the prefix for the instrument driver.  The name of each user-callable function in this driver starts with this prefix.
+    "
+attribute: "Driver Vendor"
+	"Inherent IVI Attributes:Driver Identification:Driver Vendor"
+	string readonly local 00100791
+"A string that contains the name of the vendor that supplies this driver.
+    "
+attribute: "Major Version"
+	"Inherent IVI Attributes:Driver Identification:Major Version"
+	iL readonly local 00100787
+"The major version number of this instrument driver.
+    "
+attribute: "Minor Version"
+	"Inherent IVI Attributes:Driver Identification:Minor Version"
+	iL readonly local 00100788
+"The minor version number of this instrument driver.
+    "
+attribute: "Revision"
+	"Inherent IVI Attributes:Driver Identification:Revision"
+	string readonly local 001007B7
+"A string that contains additional version information about this instrument driver.
+    "
+attribute: "Class Specification Major Version"
+	"Inherent IVI Attributes:Driver Identification:Class Specification Major Version"
+	iL readonly local 00100793
+"The major version number of the class specification with which this driver is compliant.
+    "
+attribute: "Class Specification Minor Version"
+	"Inherent IVI Attributes:Driver Identification:Class Specification Minor Version"
+	iL readonly local 00100794
+"The minor version number of the class specification with which this driver is compliant.
+    "
+attribute: "Supported Instrument Models"
+	"Inherent IVI Attributes:Driver Capabilities:Supported Instrument Models"
+	string readonly local 001006D7
+"Contains a model code of the instrument. For drivers that support more than one device, this property contains a comma-separated list of supported instrument models.
+    "
+attribute: "Class Group Capabilities"
+	"Inherent IVI Attributes:Driver Capabilities:Class Group Capabilities"
+	string readonly local 00100721
+"A string that contains a comma-separated list of class-extention groups that this driver implements.
+    "
+attribute: "Number of Channels"
+	"Inherent IVI Attributes:Driver Capabilities:Number of Channels"
+	iL readonly local 0010065B
+"Indicates the number of channels that the specific instrument driver supports.  
+    For each property for which the IVI_VAL_MULTI_CHANNEL flag property is set, the IVI engine maintains a separate cache value for each channel.
+    "
+attribute: "Manufacturer"
+	"Inherent IVI Attributes:Instrument Identification:Manufacturer"
+	string readonly local 0010078F
+"A string that contains the name of the instrument manufacturer you are currently using.
+    "
+attribute: "Model"
+	"Inherent IVI Attributes:Instrument Identification:Model"
+	string readonly local 00100790
+"A string that contains the model number or name of the instrument that you are currently using.
+    "
+attribute: "Firmware Revision"
+	"Inherent IVI Attributes:Instrument Identification:Firmware Revision"
+	string readonly local 0010078E
+"A string that contains the firmware revision information for the instrument you are currently using.
+    "
+attribute: "Primary Error"
+	"Inherent IVI Attributes:Error Info:Primary Error"
+	iL readwrite local 001005F5
+"A code that describes the first error that occurred since the last call to Chr61XXX_GetErrorInfo on the session.  The value follows the VXIplug&play completion code conventions.  A negative value describes an error condition.  A positive value describes a warning condition and indicates that no error occurred.  A zero indicates that no error or warning occurred. The error and warning values can be status codes defined by IVI, VISA, class drivers, or specific drivers.
+    "
+attribute: "Secondary Error"
+	"Inherent IVI Attributes:Error Info:Secondary Error"
+	iL readwrite local 001005F6
+"An optional code that provides additional information concerning the primary error condition.  The error and warning values can be status codes defined by IVI, VISA, class drivers, or specific drivers.  Zero indicates no additional information.
+    "
+attribute: "Error Elaboration"
+	"Inherent IVI Attributes:Error Info:Error Elaboration"
+	string readwrite local 001005F7
+"An optional string that contains additional information concerning the primary error condition.
+    "
+attribute: "Logical Name"
+	"Inherent IVI Attributes:Advanced Session Information:Logical Name"
+	string readonly local 001006C1
+"A string containing the logical name you specified when opening the current IVI session.
+     You may pass a logical name to the Chr61XXX_init or Chr61XXX_InitWithOptions functions.  The IVI Configuration utility must contain an entry for the logical name.  The logical name entry refers to a virtual instrument section in the IVI Configuration file.  The virtual instrument section specifies a physical device and initial user options.
+    "
+attribute: "Resource Descriptor"
+	"Inherent IVI Attributes:Advanced Session Information:Resource Descriptor"
+	string readonly local 001006C0
+"Indicates the resource descriptor the driver uses to identify the physical device.
+    If you initialize the driver with a logical name, this property contains the resource descriptor that corresponds to the entry in the IVI Configuration utility.  
+    If you initialize the instrument driver with the resource descriptor, this property contains that value.
+    "
+attribute: "I/O Session Type"
+	"Inherent IVI Attributes:Advanced Session Information:I/O Session Type"
+	string readonly local 001006D4
+"Contains the type of the I/O session that this driver uses to communicate with the instrument.     "
+attribute: "ID Query Response"
+	"Miscellaneous Attributes:ID Query Response"
+	string readonly local 00118C31
+"Returns the ID Query response string.  The instrument driver gets the value of this property when you pass TRUE for the ID Query parameter to the Chr61XXX_init or Chr61XXX_InitWithOptions function.
+    "

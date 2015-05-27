@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1280"
+   height="952"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.47 r22583"
+   sodipodi:docname="H1.svg"
+   inkscape:export-filename="G:\AUTOMATION\Projet KIWI\Développement\WITEK\Background\H1.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient3592">
+      <stop
+         style="stop-color:#00ffc7;stop-opacity:1;"
+         offset="0"
+         id="stop3594" />
+      <stop
+         style="stop-color:#91008f;stop-opacity:0;"
+         offset="1"
+         id="stop3596" />
+    </linearGradient>
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective10" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3592"
+       id="linearGradient3600"
+       x1="0"
+       y1="1052.3622"
+       x2="1680"
+       y2="44.362183"
+       gradientUnits="userSpaceOnUse" />
+    <inkscape:perspective
+       id="perspective3211"
+       inkscape:persp3d-origin="50 : 18.844334 : 1"
+       inkscape:vp_z="100 : 28.2665 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 28.2665 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2835"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2836"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2838"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2862"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.84138655"
+     inkscape:cx="619.201"
+     inkscape:cy="476"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1680"
+     inkscape:window-height="1024"
+     inkscape:window-x="-4"
+     inkscape:window-y="-4"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-100.36218)"
+     style="opacity:1">
+    <image
+       y="92.362167"
+       x="0"
+       id="image2864"
+       height="960"
+       width="1280"
+       xlink:href="file:///G:/AUTOMATION/Projet%20KIWI/D%C3%A9veloppement/WITEK/Background/R%C3%A9f%C3%A9rences/Metal%20-%20Brushed.jpg" />
+    <g
+       id="g3214"
+       transform="matrix(8.7243872,0,0,8.7243872,203.77628,475.7591)"
+       style="opacity:0.31018521;fill:#cccccc">
+      <path
+         id="path3201"
+         d="m 99.995,28.08 c -0.002,-0.042 -0.006,-0.082 -0.009,-0.123 -0.002,-0.021 -0.003,-0.042 -0.005,-0.062 -0.003,-0.03 -0.008,-0.06 -0.012,-0.089 -0.004,-0.035 -0.008,-0.07 -0.014,-0.104 C 99.954,27.698 99.953,27.693 99.953,27.689 99.83,26.916 99.466,26.191 98.908,25.633 95.718,21.852 91.923,18.487 88.064,15.414 79.753,8.792 70.248,3.252 59.756,1.022 53.692,-0.266 47.59,-0.321 41.494,0.769 35.949,1.761 30.605,3.823 25.603,6.379 c -7.829,4 -14.979,9.515 -21.209,15.698 -1.153,1.144 -2.3,2.312 -3.348,3.555 -1.396,1.654 -1.396,3.613 0,5.267 3.19,3.781 6.985,7.145 10.844,10.219 8.312,6.622 17.817,12.161 28.309,14.391 6.064,1.289 12.167,1.344 18.263,0.254 5.544,-0.992 10.888,-3.054 15.891,-5.61 7.829,-4.001 14.979,-9.515 21.209,-15.698 1.153,-1.145 2.3,-2.312 3.348,-3.555 0.558,-0.559 0.922,-1.283 1.045,-2.057 0,-0.004 0.001,-0.009 0.002,-0.013 0.006,-0.035 0.01,-0.069 0.014,-0.104 0.004,-0.029 0.009,-0.059 0.012,-0.089 0.002,-0.021 0.003,-0.041 0.005,-0.062 0.003,-0.04 0.007,-0.08 0.009,-0.122 0.003,-0.062 0.005,-0.124 0.005,-0.187 0,-0.063 -0.004,-0.124 -0.007,-0.186 z M 50,47.507 C 39.373,47.507 30.759,38.893 30.759,28.266 30.759,17.64 39.373,9.025 50,9.025 c 10.627,0 19.241,8.614 19.241,19.241 0,10.627 -8.614,19.241 -19.241,19.241 z"
+         style="fill:#cccccc" />
+      <circle
+         id="circle3203"
+         r="6.369"
+         cy="28.266001"
+         cx="50"
+         sodipodi:cx="50"
+         sodipodi:cy="28.266001"
+         sodipodi:rx="6.369"
+         sodipodi:ry="6.369"
+         d="m 56.369,28.266001 c 0,3.517501 -2.851498,6.369 -6.369,6.369 -3.517502,0 -6.369,-2.851499 -6.369,-6.369 0,-3.517502 2.851498,-6.369 6.369,-6.369 3.517502,0 6.369,2.851498 6.369,6.369 z"
+         style="fill:#cccccc" />
+    </g>
+    <image
+       y="143.15367"
+       x="25.732849"
+       id="image2840"
+       height="275.72534"
+       width="1228.5343"
+       xlink:href="file:///C:/Documents%20and%20Settings/ld/Bureau/logo%20gotecgris.png"
+       style="fill:#ffffff;opacity:1" />
+    <g
+       id="g2829"
+       transform="matrix(0.86520469,0,0,0.86520469,-86.771962,459.02624)">
+      <text
+         sodipodi:linespacing="125%"
+         id="text3602"
+         y="418.48505"
+         x="838.52094"
+         style="font-size:318.85903931px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#808080;fill-opacity:1;stroke:#ffffff;stroke-width:1.15579581;font-family:Arial;-inkscape-font-specification:Arial"
+         xml:space="preserve"><tspan
+           y="418.48505"
+           x="838.52094"
+           id="tspan3604"
+           sodipodi:role="line"
+           style="stroke-width:1.15579581">WI  K</tspan></text>
+      <text
+         transform="matrix(0.96200919,0,-0.39934548,1.0394911,0,0)"
+         sodipodi:linespacing="125%"
+         id="text3606"
+         y="399.86682"
+         x="1100.5776"
+         style="font-size:232.14836121px;font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#808080;fill-opacity:1;stroke:#ffffff;stroke-width:1.15579581;font-family:Arial;-inkscape-font-specification:Arial Italic"
+         xml:space="preserve"><tspan
+           y="399.86682"
+           x="1100.5776"
+           id="tspan3608"
+           sodipodi:role="line"
+           style="stroke-width:1.15579581">te</tspan></text>
+    </g>
+  </g>
+</svg>
