@@ -51,7 +51,7 @@
 		<Item Name="HMI" Type="Folder">
 			<Item Name="main.vi" Type="VI" URL="../FT_HMI.llb/main.vi"/>
 			<Item Name="main_old.vi" Type="VI" URL="../FT_HMI.llb/main_old.vi"/>
-			<Item Name="main_test.vi" Type="VI" URL="../FT_HMI.llb/main_test.vi"/>
+			<Item Name="main_simon.vi" Type="VI" URL="../FT_HMI.llb/main_simon.vi"/>
 			<Item Name="main_test_export.vi" Type="VI" URL="../FT_HMI.llb/main_test_export.vi"/>
 		</Item>
 		<Item Name="INI" Type="Folder">
@@ -223,6 +223,8 @@
 			<Item Name="test_color_plus_petit.vi" Type="VI" URL="../test_color_plus_petit.vi"/>
 			<Item Name="TwinCAT.Ads.dll" Type="Document" URL="/G/AUTOMATION/Projet KIWI/Développement/PC-API/Soft PLC/FT/builds/MiseEnRoute/My Source Distribution/TwinCAT.Ads.dll"/>
 			<Item Name="write_ini.vi" Type="VI" URL="../write_ini.vi"/>
+			<Item Name="write_ini_of_article.vi" Type="VI" URL="../write_ini_of_article.vi"/>
+			<Item Name="write_ini_serial_num.vi" Type="VI" URL="../write_ini_serial_num.vi"/>
 			<Item Name="WriteBoolCluster.vi" Type="VI" URL="../../../Soft PLC/FT/builds/MiseEnRoute/My Source Distribution/WriteBoolCluster.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
